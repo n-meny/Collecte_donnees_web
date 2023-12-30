@@ -24,13 +24,14 @@ public class Main {
 
             String titre = Page_accueil.getTitleText();
             System.out.println("Le titre de la page est : " + titre);
-            HtmlForm form = (HtmlForm)  Page_accueil.getByXPath("//form").get(0); // On récupère le formulaire de recherche
-            HtmlInput dispayNameField = form.getInputByName("qm"); // On récupère le champ de recherche
-            System.out.println(dispayNameField);    // On affiche le champ de recherche
+
+            HtmlForm formulaire_recherche = (HtmlForm)  Page_accueil.getByXPath("//form").get(0); // On récupère le formulaire de recherche
+            HtmlInput dispayNameField = formulaire_recherche.getInputByName("qm"); // On récupère le champ de recherche
+            //System.out.println(dispayNameField);    // On affiche le champ de recherche
             dispayNameField.type("led"); // On tape "led" dans le champ de recherche
-            HtmlInput searchButton = form.getInputByName("action"); // On récupère le bouton de reche  rche
-            HtmlPage resultPage = (HtmlPage) searchButton.click(); // On clique sur le bouton de recherche
-            System.out.println(resultPage.asXml()); // On affiche le code source de la page de résultat
+            HtmlInput bouton_recherche = formulaire_recherche.getInputByValue(""); // On récupère le bouton de recherche , sa valeur est nulle dans ce formulaire  
+            HtmlPage resultPage = (HtmlPage) bouton_recherche.click(); // On clique sur le bouton de recherche
+            System.out.println(resultPage.getUrl()); // On affiche le code source de la page de résultat
         }
         
     }
