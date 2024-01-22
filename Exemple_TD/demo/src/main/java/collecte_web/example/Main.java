@@ -29,7 +29,7 @@ public class Main {
             System.out.println(dispayNameField);    // On affiche le champ de recherche
             dispayNameField.type("led"); // On tape "led" dans le champ de recherche
             HtmlInput searchButton = form.getInputByName("action"); // On récupère le bouton de reche  rche
-            HtmlPage resultPage = (HtmlPage) searchButton.click(); // On clique sur le bouton de recherche
+            HtmlPage resultPage = (HtmlPage) searchButton.click(); // On  clique sur le bouton de recherche
             System.out.println(resultPage.asXml()); // On affiche le code source de la page de résultat
         }
         
